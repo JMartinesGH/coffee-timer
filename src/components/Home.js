@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function RecipeList({ recipes }) { 
   return (
@@ -19,6 +20,7 @@ export default class Popular extends React.Component {
       }
     ],
   }
+  
   render() { 
     const { recipes } = this.state 
 
@@ -26,7 +28,7 @@ export default class Popular extends React.Component {
       <div>
         <h1>Coffee Timer</h1>
         {recipes && <RecipeList recipes={recipes}/>}
-        <button>Add Recipe</button>
+        <Link to={{pathname: '/recipe/add'}}>Add Recipe</Link>
       </div>
     )
   }
