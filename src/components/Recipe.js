@@ -17,9 +17,10 @@ export default class Recipe extends React.Component {
 
     console.log('submitted')
   }
-  handleNameChange = (event) => {
+  handelChange = (event) => {
     this.setState({
-      name: event.target.value
+      ...this.state,
+      [event.target.name]: event.target.value
     })
   }
   render() { 
@@ -33,23 +34,36 @@ export default class Recipe extends React.Component {
             <div className='row recipe-inputs'>
               <input
                 type='text'
-                id='username'
+                id='name'
+                name='name'
                 className={`input-name`}
                 placeholder='Recipe Name'
                 autoComplete='off'
                 value={this.state.name}
-                onChange={this.handleNameChange}
+                onChange={this.handelChange}
               />
-          </div>
-          <div>
-            <button
-                className={`btn `}
-                type='submit'
-                disabled={!this.state.name}
-              >
+            </div>
+            {/* <div className='row recipe-inputs'>
+              <input
+                type='text'
+                id='name'
+                name='name'
+                className={`input-name`}
+                placeholder='Recipe Name'
+                autoComplete='off'
+                value={this.state.name}
+                onChange={this.handelChange}
+              />
+            </div> */}
+            <div>
+              <button
+                  className={`btn `}
+                  type='submit'
+                  disabled={!this.state.name}
+                >
                 Add Recipe
               </button>
-          </div>
+            </div>
           </form>
       </div>
     )
