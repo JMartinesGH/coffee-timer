@@ -28,7 +28,7 @@ SelectOption.propTypes = {
   max: PropTypes.number.isRequired,
   value: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  myfunction: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired
 }
 
 export default class Recipe extends React.Component { 
@@ -47,15 +47,23 @@ export default class Recipe extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault()
 
+    // get local storage
+    let storage = window.localStorage
+    // get existing data if it exists and convert to array
+    let existing = storage.getItem('coffeeTimerRecipes')
+    // existing = existing ? existing.split(', ') : []
+    existing = existing ? JSON.parse(existing) : []
+    // push new recipe to array
+    existing.push(this.state)
+    // push back up to local storage
+    storage.setItem('coffeeTimerRecipes', JSON.stringify(existing))
+
     console.log('submitted')
   }
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
     })
-  }
-  myTest = () => { 
-    console.log("test")
   }
   render() { 
     return (

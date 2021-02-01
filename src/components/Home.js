@@ -20,7 +20,9 @@ export default class Popular extends React.Component {
       }
     ],
   }
-  
+  componentDidMount() { 
+    
+  }
   render() { 
     const { recipes } = this.state 
 
