@@ -1,5 +1,35 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
+class SelectOption extends React.Component { 
+  render() { 
+    const { min, max, label, value, onChange } = this.props
+    let selectWrapper = []
+    
+    for (let i = min; i <= max; i++) { 
+      selectWrapper.push(<option key={i} value={i}>{i}</option>)
+    }
+
+    return (
+      <div>
+        <label htmlFor={`selectInput${label}`} className='recipe-label'>
+          { label }
+        </label>
+        <select id={`selectInput${label}`} name={value} onChange={onChange}>
+        { selectWrapper.map((item)=>item)}
+        </select>
+      </div>
+    )
+  }
+}
+
+SelectOption.propTypes = {
+  min: PropTypes.number.isRequired,
+  max: PropTypes.number.isRequired,
+  value: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  myfunction: PropTypes.func.isRequired
+}
 
 export default class Recipe extends React.Component { 
   state = {
@@ -19,18 +49,15 @@ export default class Recipe extends React.Component {
 
     console.log('submitted')
   }
-  handelChange = (event) => {
+  handleChange = (event) => {
     this.setState({
-      ...this.state,
       [event.target.name]: event.target.value
     })
   }
+  myTest = () => { 
+    console.log("test")
+  }
   render() { 
-    let selectMinute = []
-    for (let i = 0; i < 11; i++) { 
-      selectMinute.push(<option key={i} value={i}>{i}</option>)
-    }
-
     return (
       <div>
         <h1>Create a Recipe</h1>
@@ -47,17 +74,11 @@ export default class Recipe extends React.Component {
               placeholder='Recipe Name'
               autoComplete='off'
               value={this.state.name}
-              onChange={this.handelChange}
+              onChange={this.handleChange}
             />
           </div>
-          <div>
-          <label htmlFor='username' className='recipe-label'>
-            Minutes
-          </label>
-          <select name={this.state.brewTimeMinutes} onChange={this.handleChange}>
-          { selectMinute.map((item)=>item)}
-          </select>
-          </div>
+          <SelectOption min={0} max={10} value="brewTimeMinutes" label="Minutes" onChange={this.handleChange} />
+          <SelectOption min={0} max={59} value="brewTimeSeconds" label="Seconds" onChange={this.handleChange}/>
           <div>
             <button
                 className={`btn `}
