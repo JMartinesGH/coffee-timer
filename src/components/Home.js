@@ -5,9 +5,18 @@ function RecipeList({ recipes }) {
   return (
     <ul>
       {recipes.map(recipe => (
-        <li key={recipe.name}>{ recipe.name }</li>
+        <li key={recipe.name}><RecipeCard recipe={recipe}/></li>
       ))}
     </ul>
+  )
+}
+
+function RecipeCard({recipe}) { 
+  return (
+    <div>
+      <h2>{recipe.name}</h2>
+      <h4>{`${recipe.brewTimeMinutes}:${recipe.brewTimeSeconds<10? '0' + recipe.brewTimeSeconds : recipe.brewTimeSeconds}`}</h4>
+    </div>
   )
 }
 
