@@ -5,7 +5,7 @@ function RecipeList({ recipes }) {
   return (
     <ul>
       {recipes.map(recipe => (
-        <li key={recipe.id}>{ recipe.name }</li>
+        <li key={recipe.name}>{ recipe.name }</li>
       ))}
     </ul>
   )
@@ -13,15 +13,18 @@ function RecipeList({ recipes }) {
 
 export default class Popular extends React.Component { 
   state = {
-    recipes: [
-      {
-        name: 'test recipe',
-        id: '1'
-      }
-    ],
+    recipes: null,
   }
   componentDidMount() { 
-    
+    // get local storage
+    let storage = window.localStorage
+    // get existing data if it exists and convert to array
+    let recipes = storage.getItem('coffeeTimerRecipes')
+    recipes = recipes ? JSON.parse(recipes) : null
+    // set state
+    this.setState({
+      recipes
+    })
   }
   render() { 
     const { recipes } = this.state 
@@ -29,7 +32,8 @@ export default class Popular extends React.Component {
     return (
       <div>
         <h1>Coffee Timer</h1>
-        {recipes && <RecipeList recipes={recipes}/>}
+        {recipes && <RecipeList recipes={recipes} />}
+        {recipes == null && <h2>No Recipes</h2>}
         <Link to={{pathname: '/recipe/add'}}>Add Recipe</Link>
       </div>
     )
