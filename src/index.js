@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Home from './components/Home'
-import Recipe from './components/Recipe'
+import AddRecipe from './components/AddRecipe'
 import {
   BrowserRouter as Router,
   Route,
@@ -15,7 +15,7 @@ class App extends React.Component {
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/recipe/add" component={Recipe} />
+          <Route path="/recipe/add" component={AddRecipe} />
         </Switch>
       </Router>
     )
