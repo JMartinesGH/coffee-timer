@@ -78,8 +78,9 @@ export default class Recipe extends React.Component {
   }
   render() { 
     return (
-      <div>
-        <h1>
+      <div className='flex-center column'>
+        <h1>Create a Recipe</h1>
+        <h2>
           <button>
             <NavLink
               to='/'
@@ -87,10 +88,10 @@ export default class Recipe extends React.Component {
               activeStyle={ activeStyle }
               className='nav-link'
             >
-              Home
+              &laquo;
             </NavLink>
           </button>
-          Create a Recipe</h1>
+        </h2>
         <form className='recipe' onSubmit={this.handleSubmit}>
           <div className='flex-center column recipe-inputs'>
             <div className='row recipe-input'>
@@ -157,7 +158,7 @@ export default class Recipe extends React.Component {
             <SelectOption min={0} max={59} value="brewTimeSeconds" label="Seconds" onChange={this.handleChange}/>
             <div className='fixed-btn'>
               <button
-                  className={`${'light'}-btn add-btn`}
+                  className={`${'dark'}-btn add-btn`}
                   type='submit'
                   disabled={
                     !this.state.brewTimeMinutes ||

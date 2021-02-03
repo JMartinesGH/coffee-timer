@@ -28,7 +28,7 @@ export default class Popular extends React.Component {
         {recipes && <RecipeList recipes={recipes} />}
         {recipes == null && <h2>No Recipes</h2>}
         <div class='fixed-btn'>
-          <Link className={`${'light'}-btn add-btn`} to={{pathname: '/recipe/add'}}>Add Recipe +</Link>
+          <Link className={`${'dark'}-btn add-btn`} to={{pathname: '/recipe/add'}}>Add Recipe +</Link>
         </div>
       </div>
     )

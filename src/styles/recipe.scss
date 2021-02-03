@@ -9,18 +9,36 @@
 
 .recipe-card {
   padding: 10px 16px;
-  border: 1px solid $darkGreen;
+  border: 1px solid;
   margin-bottom: 20px;
   h2,
   h4 {
     margin: 0;
     padding: 0;
+  }
+  h2 {
+    margin-bottom: 6px;
+  }
+}
+
+.light-card {
+  background: darken($green, 5%);
+  border-color: $darkGreen;
+  h2 {
     color: $darkGreen;
   }
   h4 {
     color: $mediumGreen;
   }
+}
+
+.dark-card {
+  background: darken($purple, 5%);
+  border-color: $darkPurple;
   h2 {
-    margin-bottom: 6px;
+    color: rgb(201, 200, 200);
+  }
+  h4 {
+    color: rgb(201, 200, 200);
   }
 }

@@ -15,7 +15,7 @@ export function RecipeList({ recipes }) {
 
 export function RecipeCard({recipe}) { 
   return (
-    <div className='recipe-card'>
+    <div className={`recipe-card ${'dark'}-card`}>
       <h2>{recipe.name}</h2>
       <h4>{`${recipe.brewTimeMinutes}:${recipe.brewTimeSeconds < 10 ? '0' + recipe.brewTimeSeconds : recipe.brewTimeSeconds} ${recipe.coffeeWeight ? ' | ' + recipe.coffeeWeight + 'g ' : ''}`}</h4>
       <h4>{ `${recipe.vessel ? recipe.vessel : ''}` }</h4>

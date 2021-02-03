@@ -1,5 +1,21 @@
 @import "./_variables.scss";
 
+// themes
+.dark {
+  color: rgb(201, 200, 200);
+  background: $purple;
+  min-height: 100%;
+}
+
+.light {
+  color: $darkGreen;
+  background: $green;
+  min-height: 100%;
+  h1 {
+    color: $darkGreen;
+  }
+}
+
 .flex-center {
   display: flex;
   justify-content: center;
@@ -14,13 +30,13 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  background: $green;
+  background: inherit;
   text-align: center;
   padding: 20px 0;
 }
 
-.light-btn {
-  color: #2b300a;
+.light-btn,
+.dark-btn {
   background: transparent;
   text-decoration: none;
   font-size: 24px;
@@ -28,9 +44,22 @@
   padding: 0;
 }
 
+.light-btn {
+  color: #2b300a;
+}
+
+.dark-btn {
+  color: rgb(200, 200, 200);
+}
+
 .light-btn:disabled {
   background: transparent;
   color: #74821c;
+}
+
+.dark-btn:disabled {
+  background: transparent;
+  color: rgb(140, 140, 140);
 }
 
 .add-btn {
