@@ -1,0 +1,39 @@
+@import "./_variables.scss";
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.fixed-btn {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: $green;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.light-btn {
+  color: #2b300a;
+  background: transparent;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 400;
+  padding: 0;
+}
+
+.light-btn:disabled {
+  background: transparent;
+  color: #74821c;
+}
+
+.add-btn {
+  border: 0;
+  outline: none;
+}

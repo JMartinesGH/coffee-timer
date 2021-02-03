@@ -92,79 +92,81 @@ export default class Recipe extends React.Component {
           </button>
           Create a Recipe</h1>
         <form className='recipe' onSubmit={this.handleSubmit}>
-          <div className='row recipe-inputs'>
-            <label htmlFor='username' className='recipe-label'>
-              Nickname
-            </label>
-            <input
-              type='text'
-              id='name'
-              name='name'
-              className={`input-name`}
-              placeholder='Recipe Name'
-              autoComplete='off'
-              value={this.state.name}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className='row recipe-inputs'>
-            <label htmlFor='username' className='recipe-label'>
-              Vessel
-            </label>
-            <input
-              type='text'
-              id='vessel'
-              name='vessel'
-              className={`input-name`}
-              placeholder='Vessel'
-              autoComplete='off'
-              value={this.state.vessel}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className='row recipe-inputs'>
-            <label htmlFor='username' className='recipe-label'>
-              Coffee Weight
-            </label>
-            <input
-              type='text'
-              id='coffeeWeight'
-              name='coffeeWeight'
-              className={`input-name`}
-              placeholder='(grams)'
-              autoComplete='off'
-              value={this.state.coffeeWeight}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className='row recipe-inputs'>
-            <label htmlFor='username' className='recipe-label'>
-              Water Weight
-            </label>
-            <input
-              type='text'
-              id='waterWeight'
-              name='waterWeight'
-              className={`input-name`}
-              placeholder='(grams)'
-              autoComplete='off'
-              value={this.state.waterWeight}
-              onChange={this.handleChange}
-            />
-          </div>
-          <SelectOption min={0} max={10} value="brewTimeMinutes" label="Minutes" onChange={this.handleChange} />
-          <SelectOption min={0} max={59} value="brewTimeSeconds" label="Seconds" onChange={this.handleChange}/>
-          <div>
-            <button
-                className={`btn `}
-                type='submit'
-                disabled={
-                  !this.state.brewTimeMinutes ||
-                  !this.state.name
-                }
-              >
-              Add Recipe
-            </button>
+          <div className='flex-center column recipe-inputs'>
+            <div className='row recipe-input'>
+              <label htmlFor='username' className='recipe-label'>
+                Nickname
+              </label>
+              <input
+                type='text'
+                id='name'
+                name='name'
+                className={`input-name`}
+                placeholder='Recipe Name'
+                autoComplete='off'
+                value={this.state.name}
+                onChange={this.handleChange}
+                />
+            </div>
+            <div className='row recipe-input'>
+              <label htmlFor='username' className='recipe-label'>
+                Vessel
+              </label>
+              <input
+                type='text'
+                id='vessel'
+                name='vessel'
+                className={`input-name`}
+                placeholder='Vessel'
+                autoComplete='off'
+                value={this.state.vessel}
+                onChange={this.handleChange}
+                />
+            </div>
+            <div className='row recipe-input'>
+              <label htmlFor='username' className='recipe-label'>
+                Coffee Weight
+              </label>
+              <input
+                type='text'
+                id='coffeeWeight'
+                name='coffeeWeight'
+                className={`input-name`}
+                placeholder='(grams)'
+                autoComplete='off'
+                value={this.state.coffeeWeight}
+                onChange={this.handleChange}
+                />
+            </div>
+            <div className='row recipe-input'>
+              <label htmlFor='username' className='recipe-label'>
+                Water Weight
+              </label>
+              <input
+                type='text'
+                id='waterWeight'
+                name='waterWeight'
+                className={`input-name`}
+                placeholder='(grams)'
+                autoComplete='off'
+                value={this.state.waterWeight}
+                onChange={this.handleChange}
+                />
+            </div>
+            <SelectOption min={0} max={10} value="brewTimeMinutes" label="Minutes" onChange={this.handleChange} />
+            <SelectOption min={0} max={59} value="brewTimeSeconds" label="Seconds" onChange={this.handleChange}/>
+            <div className='fixed-btn'>
+              <button
+                  className={`${'light'}-btn add-btn`}
+                  type='submit'
+                  disabled={
+                    !this.state.brewTimeMinutes ||
+                    !this.state.name
+                  }
+                  >
+                Add Recipe +
+              </button>
+            </div>
           </div>
         </form>
       </div>

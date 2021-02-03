@@ -1,0 +1,26 @@
+@import "./_variables.scss";
+
+.recipe-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 16px;
+  width: calc(100% - 32px);
+}
+
+.recipe-card {
+  padding: 10px 16px;
+  border: 1px solid $darkGreen;
+  margin-bottom: 20px;
+  h2,
+  h4 {
+    margin: 0;
+    padding: 0;
+    color: $darkGreen;
+  }
+  h4 {
+    color: $mediumGreen;
+  }
+  h2 {
+    margin-bottom: 6px;
+  }
+}

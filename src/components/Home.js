@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { RecipeList } from './Recipe'
+import '../styles/_variables.scss'
+import '../styles/_global.scss'
 
 export default class Popular extends React.Component { 
   state = {
@@ -21,11 +23,13 @@ export default class Popular extends React.Component {
     const { recipes } = this.state 
 
     return (
-      <div>
+      <div className='flex-center column'>
         <h1>Coffee Timer</h1>
         {recipes && <RecipeList recipes={recipes} />}
         {recipes == null && <h2>No Recipes</h2>}
-        <Link to={{pathname: '/recipe/add'}}>Add Recipe</Link>
+        <div class='fixed-btn'>
+          <Link className={`${'light'}-btn add-btn`} to={{pathname: '/recipe/add'}}>Add Recipe +</Link>
+        </div>
       </div>
     )
   }
