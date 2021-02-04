@@ -26,6 +26,15 @@
   flex-direction: column;
 }
 
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
 .fixed-btn {
   position: fixed;
   bottom: 0;
@@ -64,5 +73,11 @@
 
 .add-btn {
   border: 0;
+  outline: none;
+}
+
+.btn-clear {
+  background: transparent;
+  border: none;
   outline: none;
 }

@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
+import { ThemeConsumer } from '../contexts/theme'
+import Nav from './Nav'
 
 const activeStyle = {
   color: 'rgb(187,46,31)',
@@ -78,99 +80,92 @@ export default class Recipe extends React.Component {
   }
   render() { 
     return (
-      <div className='flex-center column'>
-        <h1>Create a Recipe</h1>
-        <h2>
-          <button>
-            <NavLink
-              to='/'
-              exact
-              activeStyle={ activeStyle }
-              className='nav-link'
-            >
-              &laquo;
-            </NavLink>
-          </button>
-        </h2>
-        <form className='recipe' onSubmit={this.handleSubmit}>
-          <div className='flex-center column recipe-inputs'>
-            <div className='row recipe-input'>
-              <label htmlFor='username' className='recipe-label'>
-                Nickname
-              </label>
-              <input
-                type='text'
-                id='name'
-                name='name'
-                className={`input-name`}
-                placeholder='Recipe Name'
-                autoComplete='off'
-                value={this.state.name}
-                onChange={this.handleChange}
-                />
+      <ThemeConsumer>
+        {({theme})=>(
+          <div className='flex-center column'>
+          <Nav />
+          <h1>Create a Recipe</h1>
+          <form className='recipe' onSubmit={this.handleSubmit}>
+            <div className='flex-center column recipe-inputs'>
+              <div className='row recipe-input'>
+                <label htmlFor='username' className='recipe-label'>
+                  Nickname
+                </label>
+                <input
+                  type='text'
+                  id='name'
+                  name='name'
+                  className={`input-name`}
+                  placeholder='Recipe Name'
+                  autoComplete='off'
+                  value={this.state.name}
+                  onChange={this.handleChange}
+                  />
+              </div>
+              <div className='row recipe-input'>
+                <label htmlFor='username' className='recipe-label'>
+                  Vessel
+                </label>
+                <input
+                  type='text'
+                  id='vessel'
+                  name='vessel'
+                  className={`input-name`}
+                  placeholder='Vessel'
+                  autoComplete='off'
+                  value={this.state.vessel}
+                  onChange={this.handleChange}
+                  />
+              </div>
+              <div className='row recipe-input'>
+                <label htmlFor='username' className='recipe-label'>
+                  Coffee Weight
+                </label>
+                <input
+                  type='text'
+                  id='coffeeWeight'
+                  name='coffeeWeight'
+                  className={`input-name`}
+                  placeholder='(grams)'
+                  autoComplete='off'
+                  value={this.state.coffeeWeight}
+                  onChange={this.handleChange}
+                  />
+              </div>
+              <div className='row recipe-input'>
+                <label htmlFor='username' className='recipe-label'>
+                  Water Weight
+                </label>
+                <input
+                  type='text'
+                  id='waterWeight'
+                  name='waterWeight'
+                  className={`input-name`}
+                  placeholder='(grams)'
+                  autoComplete='off'
+                  value={this.state.waterWeight}
+                  onChange={this.handleChange}
+                  />
+              </div>
+              <SelectOption min={0} max={10} value="brewTimeMinutes" label="Minutes" onChange={this.handleChange} />
+              <SelectOption min={0} max={59} value="brewTimeSeconds" label="Seconds" onChange={this.handleChange}/>
+              <div className='fixed-btn'>
+                <button
+                    className={`${theme}-btn add-btn`}
+                    type='submit'
+                    disabled={
+                      !this.state.brewTimeMinutes ||
+                      !this.state.name
+                    }
+                    >
+                  Add Recipe +
+                </button>
+              </div>
             </div>
-            <div className='row recipe-input'>
-              <label htmlFor='username' className='recipe-label'>
-                Vessel
-              </label>
-              <input
-                type='text'
-                id='vessel'
-                name='vessel'
-                className={`input-name`}
-                placeholder='Vessel'
-                autoComplete='off'
-                value={this.state.vessel}
-                onChange={this.handleChange}
-                />
-            </div>
-            <div className='row recipe-input'>
-              <label htmlFor='username' className='recipe-label'>
-                Coffee Weight
-              </label>
-              <input
-                type='text'
-                id='coffeeWeight'
-                name='coffeeWeight'
-                className={`input-name`}
-                placeholder='(grams)'
-                autoComplete='off'
-                value={this.state.coffeeWeight}
-                onChange={this.handleChange}
-                />
-            </div>
-            <div className='row recipe-input'>
-              <label htmlFor='username' className='recipe-label'>
-                Water Weight
-              </label>
-              <input
-                type='text'
-                id='waterWeight'
-                name='waterWeight'
-                className={`input-name`}
-                placeholder='(grams)'
-                autoComplete='off'
-                value={this.state.waterWeight}
-                onChange={this.handleChange}
-                />
-            </div>
-            <SelectOption min={0} max={10} value="brewTimeMinutes" label="Minutes" onChange={this.handleChange} />
-            <SelectOption min={0} max={59} value="brewTimeSeconds" label="Seconds" onChange={this.handleChange}/>
-            <div className='fixed-btn'>
-              <button
-                  className={`${'dark'}-btn add-btn`}
-                  type='submit'
-                  disabled={
-                    !this.state.brewTimeMinutes ||
-                    !this.state.name
-                  }
-                  >
-                Add Recipe +
-              </button>
-            </div>
+          </form>
           </div>
-        </form>
-      </div>
+          )}
+        </ThemeConsumer>
     )
   }
 }

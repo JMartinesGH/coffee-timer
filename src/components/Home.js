@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { RecipeList } from './Recipe'
+import { ThemeConsumer } from '../contexts/theme'
 import '../styles/_variables.scss'
 import '../styles/_global.scss'
 
@@ -23,14 +24,27 @@ export default class Popular extends React.Component {
     const { recipes } = this.state 
 
     return (
-      <div className='flex-center column'>
-        <h1>Coffee Timer</h1>
-        {recipes && <RecipeList recipes={recipes} />}
-        {recipes == null && <h2>No Recipes</h2>}
-        <div class='fixed-btn'>
-          <Link className={`${'dark'}-btn add-btn`} to={{pathname: '/recipe/add'}}>Add Recipe +</Link>
-        </div>
-      </div>
+      <ThemeConsumer>
+        {({ theme, toggleTheme }) => (
+          <div className='flex-center column'>
+            <div className='row space-between'>
+              <h1>Coffee Timer</h1>
+              <button
+                style={{ fontSize: 30 }}
+                className='btn-clear'
+                onClick={ toggleTheme }
+              >
+                { theme === 'light' ? '🔦' : '💡' }
+              </button>
+            </div>
+            {recipes && <RecipeList recipes={recipes} />}
+            {recipes == null && <h2>No Recipes</h2>}
+            <div class='fixed-btn'>
+              <Link className={`${theme}-btn add-btn`} to={{pathname: '/recipe/add'}}>Add Recipe +</Link>
+            </div>
+          </div>
+        )}
+      </ThemeConsumer>
     )
   }
 }

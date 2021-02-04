@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { ThemeProvider } from './contexts/theme'
 import Home from './components/Home'
 import AddRecipe from './components/AddRecipe'
 import {
@@ -10,15 +11,25 @@ import {
 } from 'react-router-dom'
 
 class App extends React.Component { 
+  state = {
+      theme: 'light',
+      toggleTheme: () => { 
+        this.setState(({ theme }) => ({
+          theme: theme === 'light'? 'dark' : 'light'
+        }))
+      }
+    }
   render() { 
     return (
       <Router>
-        <div className={`dark`}>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/recipe/add" component={AddRecipe} />
-          </Switch>
-        </div>
+        <ThemeProvider value={this.state}>
+          <div className={ this.state.theme }>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/recipe/add" component={AddRecipe} />
+            </Switch>
+          </div>
+        </ThemeProvider>
       </Router>
     )
   }
