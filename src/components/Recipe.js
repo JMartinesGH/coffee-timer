@@ -20,8 +20,8 @@ export function RecipeCard({recipe}) {
       {({theme}) => (
         <div className={`recipe-card ${theme}-card`}>
           <h2>{recipe.name}</h2>
-          <h4>{`${recipe.brewTimeMinutes}:${recipe.brewTimeSeconds < 10 ? '0' + recipe.brewTimeSeconds : recipe.brewTimeSeconds} ${recipe.coffeeWeight ? ' | ' + recipe.coffeeWeight + 'g ' : ''}`}</h4>
           <h4>{ `${recipe.vessel ? recipe.vessel : ''}` }</h4>
+          <h4>{`${recipe.brewTimeMinutes}:${recipe.brewTimeSeconds < 10 ? '0' + recipe.brewTimeSeconds : recipe.brewTimeSeconds} ${recipe.coffeeWeight ? ' | ' + recipe.coffeeWeight + 'g ' : ''}`}</h4>
         </div>
       )}
     </ThemeConsumer>
