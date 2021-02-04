@@ -29,6 +29,7 @@
 .row {
   display: flex;
   flex-direction: row;
+  width: calc(100% - 30px);
 }
 
 .space-between {
