@@ -81,3 +81,14 @@
   border: none;
   outline: none;
 }
+
+.center-vert {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+}

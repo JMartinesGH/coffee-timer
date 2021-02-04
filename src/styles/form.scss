@@ -1,0 +1,25 @@
+@import "./_variables.scss";
+
+.recipe-form {
+  width: calc(100% - 30px);
+  padding: 0 15px;
+}
+
+.recipe-inputs {
+}
+
+.recipe-input {
+  width: 100%;
+  margin-bottom: 20px;
+  font-size: 20px;
+
+  input {
+    width: 60%;
+  }
+}
+
+.select-input {
+  label {
+    padding: 0 10px;
+  }
+}

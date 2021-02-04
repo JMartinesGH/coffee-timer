@@ -1,12 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { NavLink } from 'react-router-dom'
 import { ThemeConsumer } from '../contexts/theme'
 import Nav from './Nav'
-
-const activeStyle = {
-  color: 'rgb(187,46,31)',
-}
+import '../styles/form.scss'
 
 class SelectOption extends React.Component { 
   render() { 
@@ -18,11 +14,11 @@ class SelectOption extends React.Component {
     }
 
     return (
-      <div>      
-        <label htmlFor={`selectInput${label}`} className='recipe-label'>
+      <div className='select-input'>      
+        <label htmlFor={`select-input-${label}`} className='recipe-label'>
           { label }
         </label>
-        <select id={`selectInput${label}`} name={value} onChange={onChange} >
+        <select id={`select-input-${label}`} name={value} onChange={onChange} >
         { selectWrapper.map((item)=>item)}
         </select>
       </div>
@@ -85,9 +81,9 @@ export default class Recipe extends React.Component {
           <div className='flex-center column'>
           <Nav />
           <h1>Create a Recipe</h1>
-          <form className='recipe' onSubmit={this.handleSubmit}>
+          <form className='recipe-form' onSubmit={this.handleSubmit}>
             <div className='flex-center column recipe-inputs'>
-              <div className='row recipe-input'>
+              <div className='row recipe-input space-between'>
                 <label htmlFor='username' className='recipe-label'>
                   Nickname
                 </label>
@@ -102,7 +98,7 @@ export default class Recipe extends React.Component {
                   onChange={this.handleChange}
                   />
               </div>
-              <div className='row recipe-input'>
+              <div className='row recipe-input space-between'>
                 <label htmlFor='username' className='recipe-label'>
                   Vessel
                 </label>
@@ -117,7 +113,7 @@ export default class Recipe extends React.Component {
                   onChange={this.handleChange}
                   />
               </div>
-              <div className='row recipe-input'>
+              <div className='row recipe-input space-between'>
                 <label htmlFor='username' className='recipe-label'>
                   Coffee Weight
                 </label>
@@ -132,7 +128,7 @@ export default class Recipe extends React.Component {
                   onChange={this.handleChange}
                   />
               </div>
-              <div className='row recipe-input'>
+              <div className='row recipe-input space-between'>
                 <label htmlFor='username' className='recipe-label'>
                   Water Weight
                 </label>
@@ -147,8 +143,10 @@ export default class Recipe extends React.Component {
                   onChange={this.handleChange}
                   />
               </div>
-              <SelectOption min={0} max={10} value="brewTimeMinutes" label="Minutes" onChange={this.handleChange} />
-              <SelectOption min={0} max={59} value="brewTimeSeconds" label="Seconds" onChange={this.handleChange}/>
+                <div className='row recipe-input flex-center space-around'>
+                <SelectOption min={0} max={10} value="brewTimeMinutes" label="Minutes" onChange={this.handleChange} />
+                <SelectOption min={0} max={59} value="brewTimeSeconds" label="Seconds" onChange={this.handleChange}/>
+              </div>
               <div className='fixed-btn'>
                 <button
                     className={`${theme}-btn add-btn`}

@@ -11,8 +11,8 @@ export default function Nav() {
           <NavLink 
             to='/' 
             exact
-            className='nav-link'>
-            &laquo;
+            className='nav-link center-vert'>
+            &laquo; Return Home
           </NavLink>
           
           <button
