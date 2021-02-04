@@ -2,13 +2,15 @@ import React from 'react'
 import { ThemeConsumer } from '../contexts/theme'
 import Nav from './Nav'
 import queryString from 'query-string'
+// import { useStopwatch } from 'react-timer-hook';
 
 import '../styles/form.scss'
 
 export default class ActiveRecipe extends React.Component { 
   state = {
     vessel: null,
-    brewTime: null,
+    minutes: null,
+    seconds: null,
     coffeeWeight: null,
     waterWeight: null,
   }
@@ -18,7 +20,7 @@ export default class ActiveRecipe extends React.Component {
     this.setState({
       vessel,
       minutes,
-      seconds : seconds || 0,
+      seconds,
       coffeeWeight,
       waterWeight
     })
@@ -33,7 +35,9 @@ export default class ActiveRecipe extends React.Component {
     })
   }
   render() { 
-    const { vessel, minutes, seconds, coffeeWeight, waterWeight } = this.state 
+    const { vessel, minutes: brewMinutes, seconds:brewSeconds, coffeeWeight, waterWeight } = this.state 
+    // const { seconds, minutes, isRunning, start, pause, reset } = useStopwatch({ autoStart: false });
+
     return (
       <ThemeConsumer>
         {({theme})=>(
@@ -41,8 +45,8 @@ export default class ActiveRecipe extends React.Component {
             <Nav />
             <h1>Using Recipe</h1>
             <h3>Vessel: { vessel }</h3>
-            <h3>{minutes ? 'Minutes: ' + minutes : ''}</h3>
-            <h3>{ seconds ? 'Seconds: '+ seconds : ''}</h3>
+            <h3>{ brewMinutes ? 'Minutes: ' + brewMinutes : ''}</h3>
+            <h3>{ brewSeconds ? 'Seconds: ' + brewSeconds : ''}</h3>
             <h3>{ coffeeWeight }</h3>
             <h3>{ waterWeight }</h3>
           </div>
