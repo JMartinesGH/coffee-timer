@@ -23,7 +23,7 @@ export function RecipeCard({recipe}) {
           className={`recipe-link`}
           to={{
             pathname: '/recipe/active',
-            search: `?`
+            search: `${recipe.vessel ? '?vessel=' + recipe.vessel : ''}${recipe.coffeeWeight ? '&coffeeWeight='+ recipe.coffeeWeight : '' }${recipe.waterWeight ? '&waterWeight='+ recipe.waterWeight : '' }${recipe.brewTimeMinutes ? '&minutes='+ recipe.brewTimeMinutes : '' }${recipe.brewTimeSeconds ? '&seconds='+ recipe.brewTimeSeconds : '' }`
           }}
         >
           <div className={`recipe-card ${theme}-card`}>
