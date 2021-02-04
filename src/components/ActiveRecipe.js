@@ -18,7 +18,7 @@ export default class ActiveRecipe extends React.Component {
     this.setState({
       vessel,
       minutes,
-      seconds,
+      seconds : seconds || 0,
       coffeeWeight,
       waterWeight
     })
@@ -41,7 +41,8 @@ export default class ActiveRecipe extends React.Component {
             <Nav />
             <h1>Using Recipe</h1>
             <h3>Vessel: { vessel }</h3>
-            <h3>{ minutes ? 'Minutes: '+ minutes : ''}</h3>
+            <h3>{minutes ? 'Minutes: ' + minutes : ''}</h3>
+            <h3>{ seconds ? 'Seconds: '+ seconds : ''}</h3>
             <h3>{ coffeeWeight }</h3>
             <h3>{ waterWeight }</h3>
           </div>
@@ -50,3 +51,4 @@ export default class ActiveRecipe extends React.Component {
     )
   }
 }
+
