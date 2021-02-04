@@ -4,6 +4,7 @@ import './index.css';
 import { ThemeProvider } from './contexts/theme'
 import Home from './components/Home'
 import AddRecipe from './components/AddRecipe'
+import ActiveRecipe from './components/ActiveRecipe'
 import {
   BrowserRouter as Router,
   Route,
@@ -27,6 +28,7 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/recipe/add" component={AddRecipe} />
+              <Route path="/recipe/active" component={ActiveRecipe} />
             </Switch>
           </div>
         </ThemeProvider>
