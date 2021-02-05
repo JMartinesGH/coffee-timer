@@ -19,8 +19,8 @@ export default class ActiveRecipe extends React.Component {
     const { vessel, minutes, seconds, coffeeWeight, waterWeight } = queryString.parse(this.props.location.search)
     this.setState({
       vessel,
-      minutes,
-      seconds,
+      minutes: parseInt(minutes),
+      seconds: parseInt(seconds),
       coffeeWeight,
       waterWeight
     })
@@ -35,21 +35,20 @@ export default class ActiveRecipe extends React.Component {
     })
   }
   render() { 
-    const { vessel, minutes: brewMinutes, seconds: brewSeconds, coffeeWeight, waterWeight } = this.state 
-    // const { seconds, minutes, isRunning, start, pause, reset } = useStopwatch({ autoStart: false });
+    const { vessel, minutes, seconds, coffeeWeight, waterWeight } = this.state 
 
     return (
       <ThemeConsumer>
-        {({theme})=>(
+        {()=>(
           <div className='flex-center column'>
             <Nav />
             <h1>Using Recipe</h1>
             <h3>Vessel: { vessel }</h3>
-            <h3>{ brewMinutes ? 'Minutes: ' + brewMinutes : ''}</h3>
-            <h3>{ brewSeconds ? 'Seconds: ' + brewSeconds : ''}</h3>
+            <h3>{ minutes ? 'Minutes: ' + minutes : 0}</h3>
+            <h3>{ seconds ? 'Seconds: ' + seconds : 0}</h3>
             <h3>Coffee Weight: { coffeeWeight } grams</h3>
             <h3>Water Weight: { waterWeight } grams</h3>
-            <Timer minutes={brewMinutes} seconds={brewSeconds}/>
+            <Timer minutes={minutes} seconds={seconds}/>
           </div>
           )}
         </ThemeConsumer>
