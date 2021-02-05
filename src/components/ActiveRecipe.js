@@ -1,8 +1,8 @@
 import React from 'react'
 import { ThemeConsumer } from '../contexts/theme'
 import Nav from './Nav'
+import Timer from './Timer'
 import queryString from 'query-string'
-// import { useStopwatch } from 'react-timer-hook';
 
 import '../styles/form.scss'
 
@@ -35,7 +35,7 @@ export default class ActiveRecipe extends React.Component {
     })
   }
   render() { 
-    const { vessel, minutes: brewMinutes, seconds:brewSeconds, coffeeWeight, waterWeight } = this.state 
+    const { vessel, minutes: brewMinutes, seconds: brewSeconds, coffeeWeight, waterWeight } = this.state 
     // const { seconds, minutes, isRunning, start, pause, reset } = useStopwatch({ autoStart: false });
 
     return (
@@ -47,8 +47,9 @@ export default class ActiveRecipe extends React.Component {
             <h3>Vessel: { vessel }</h3>
             <h3>{ brewMinutes ? 'Minutes: ' + brewMinutes : ''}</h3>
             <h3>{ brewSeconds ? 'Seconds: ' + brewSeconds : ''}</h3>
-            <h3>{ coffeeWeight }</h3>
-            <h3>{ waterWeight }</h3>
+            <h3>Coffee Weight: { coffeeWeight } grams</h3>
+            <h3>Water Weight: { waterWeight } grams</h3>
+            <Timer minutes={brewMinutes} seconds={brewSeconds}/>
           </div>
           )}
         </ThemeConsumer>
