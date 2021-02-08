@@ -42,16 +42,18 @@ export default class ActiveRecipe extends React.Component {
           <div className='flex-center column'>
             <Nav />
             <h1>Using Recipe</h1>
-            <div className='flex-center row columns flex-auto max-height'>
+            <div className='flex-center row columns flex-auto max-height full-width'>
               <div className='left column flex'>
-                <h3>Coffee: { coffeeWeight } grams</h3>
-                <h3>Water: { waterWeight } grams</h3>
+                <h4>Coffee:</h4>
+                <h3>{ coffeeWeight } g</h3>
+                <h4>Water:</h4>
+                <h3>{waterWeight} g</h3>
               </div>
               <div className='center column flex-end'>
                 <Timer minutes={minutes} seconds={seconds} />
               </div>
               <div className='right column flex-center'>
-                <h3 className='rotate-ninety'>{ vessel ? vessel : 'vessel'}</h3>
+                <h3 className='vessel-name rotate-ninety uppercase'>{ vessel ? vessel : 'vessel'}</h3>
               </div>
             </div>
           </div>

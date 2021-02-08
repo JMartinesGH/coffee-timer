@@ -60,6 +60,10 @@
   min-height: 100%;
 }
 
+.full-width {
+  width: calc(100% - 32px);
+}
+
 .fixed-btn {
   position: fixed;
   bottom: 0;
@@ -116,4 +120,8 @@
 .nav-link {
   text-decoration: none;
   color: white;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }
