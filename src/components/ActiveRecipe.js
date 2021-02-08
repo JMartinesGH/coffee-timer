@@ -3,8 +3,7 @@ import { ThemeConsumer } from '../contexts/theme'
 import Nav from './Nav'
 import Timer from './Timer'
 import queryString from 'query-string'
-
-import '../styles/form.scss'
+import '../styles/activeRecipe.scss'
 
 export default class ActiveRecipe extends React.Component { 
   state = {
@@ -43,12 +42,18 @@ export default class ActiveRecipe extends React.Component {
           <div className='flex-center column'>
             <Nav />
             <h1>Using Recipe</h1>
-            <h3>Vessel: { vessel }</h3>
-            <h3>{ minutes ? 'Minutes: ' + minutes : 0}</h3>
-            <h3>{ seconds ? 'Seconds: ' + seconds : 0}</h3>
-            <h3>Coffee Weight: { coffeeWeight } grams</h3>
-            <h3>Water Weight: { waterWeight } grams</h3>
-            <Timer minutes={minutes} seconds={seconds}/>
+            <div className='flex-center row columns flex-auto max-height'>
+              <div className='left column flex'>
+                <h3>Coffee: { coffeeWeight } grams</h3>
+                <h3>Water: { waterWeight } grams</h3>
+              </div>
+              <div className='center column flex-end'>
+                <Timer minutes={minutes} seconds={seconds} />
+              </div>
+              <div className='right column flex-center'>
+                <h3 className='rotate-ninety'>{ vessel ? vessel : 'vessel'}</h3>
+              </div>
+            </div>
           </div>
           )}
         </ThemeConsumer>

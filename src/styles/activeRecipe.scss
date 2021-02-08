@@ -1,0 +1,26 @@
+.columns {
+  // min-height: 100%;
+  & > div {
+    flex: 1;
+  }
+  .left,
+  .right,
+  .center {
+    height: 100%;
+  }
+  .left {
+    flex-basis: 20%;
+    align-self: flex-start;
+  }
+  .center {
+    flex-basis: 60%;
+    align-self: flex-end;
+  }
+  .right {
+    flex-basis: 20%;
+    align-self: center;
+  }
+}
+.rotate-ninety {
+  transform: rotate(90deg);
+}

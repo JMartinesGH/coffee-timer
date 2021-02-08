@@ -24,7 +24,7 @@ class App extends React.Component {
     return (
       <Router>
         <ThemeProvider value={this.state}>
-          <div className={ this.state.theme }>
+          <div className={ `flex max-height flex-start column ${this.state.theme}` }>
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/recipe/add" component={AddRecipe} />

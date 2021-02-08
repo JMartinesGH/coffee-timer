@@ -7,7 +7,7 @@ export default function Nav() {
   return (
     <ThemeConsumer>
       {({ theme, toggleTheme }) => (
-        <nav className='nav row space-between'>
+        <nav className='nav flex row space-between'>
           <NavLink 
             to='/' 
             exact

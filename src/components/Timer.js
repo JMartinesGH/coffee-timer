@@ -1,4 +1,5 @@
 import React from 'react'
+import '../styles/timer.scss'
 
 export default class Timer extends React.Component {   
   state = {
@@ -53,12 +54,13 @@ export default class Timer extends React.Component {
     let seconds = elapsedTime - (minutes * 60)
 
     return(
-      <div className='ct-stopwatch'>
-        <h1>Timer</h1>
+      <div className='ct-stopwatch flex row space-between' >
         <div>{minutes}:{seconds<10 ? '0'+seconds : seconds}</div>
-        {!isRunning && <button onClick={this.startCounting}>Start</button>}
-        {isRunning && <button onClick={this.pauseCounting}>Pause</button>}
-        {<div>{totalMinutes}:{totalSeconds < 10 ? '0' + totalSeconds : totalSeconds}</div>}
+        <div>
+          {!isRunning && <button onClick={this.startCounting}>Start</button>}
+          {isRunning && <button onClick={this.pauseCounting}>Pause</button>}
+        </div>
+        <div>{totalMinutes}:{totalSeconds < 10 ? '0' + totalSeconds : totalSeconds}</div>
       </div>
     )
   }

@@ -1,19 +1,26 @@
 @import "./_variables.scss";
 
 // themes
+.dark,
+.light {
+  position: relative;
+}
+
 .dark {
   color: rgb(201, 200, 200);
   background: $purple;
-  min-height: 100%;
 }
 
 .light {
   color: $darkGreen;
   background: $green;
-  min-height: 100%;
   h1 {
     color: $darkGreen;
   }
+}
+
+.flex {
+  display: flex;
 }
 
 .flex-center {
@@ -22,18 +29,35 @@
   align-items: center;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-start {
+  align-items: flex-start;
+}
+
+.flex-auto {
+  flex: auto;
+}
+
 .column {
   flex-direction: column;
+  width: 100%;
+  align-self: center;
+  flex: 1;
 }
 
 .row {
-  display: flex;
   flex-direction: row;
-  width: calc(100% - 30px);
 }
 
 .space-between {
   justify-content: space-between;
+}
+
+.max-height {
+  min-height: 100%;
 }
 
 .fixed-btn {
