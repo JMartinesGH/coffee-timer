@@ -78,12 +78,12 @@ export default class Recipe extends React.Component {
     return (
       <ThemeConsumer>
         {({theme})=>(
-          <div className='flex-center column'>
+          <div className='column'>
           <Nav />
           <h1>Create a Recipe</h1>
           <form className='recipe-form' onSubmit={this.handleSubmit}>
             <div className='flex-center column recipe-inputs'>
-              <div className='row recipe-input space-between'>
+              <div className='flex row recipe-input space-between'>
                 <label htmlFor='username' className='recipe-label'>
                   Nickname
                 </label>
@@ -98,7 +98,7 @@ export default class Recipe extends React.Component {
                   onChange={this.handleChange}
                   />
               </div>
-              <div className='row recipe-input space-between'>
+              <div className='flex row recipe-input space-between'>
                 <label htmlFor='username' className='recipe-label'>
                   Vessel
                 </label>
@@ -113,7 +113,7 @@ export default class Recipe extends React.Component {
                   onChange={this.handleChange}
                   />
               </div>
-              <div className='row recipe-input space-between'>
+              <div className='flex row recipe-input space-between'>
                 <label htmlFor='username' className='recipe-label'>
                   Coffee Weight
                 </label>
@@ -128,7 +128,7 @@ export default class Recipe extends React.Component {
                   onChange={this.handleChange}
                   />
               </div>
-              <div className='row recipe-input space-between'>
+              <div className='flex row recipe-input space-between'>
                 <label htmlFor='username' className='recipe-label'>
                   Water Weight
                 </label>
@@ -143,7 +143,7 @@ export default class Recipe extends React.Component {
                   onChange={this.handleChange}
                   />
               </div>
-                <div className='row recipe-input flex-center space-around'>
+                <div className='flex row recipe-input flex-center space-around'>
                 <SelectOption min={0} max={10} value="brewTimeMinutes" label="Minutes" onChange={this.handleChange} />
                 <SelectOption min={0} max={59} value="brewTimeSeconds" label="Seconds" onChange={this.handleChange}/>
               </div>
