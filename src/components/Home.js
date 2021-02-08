@@ -26,8 +26,8 @@ export default class Popular extends React.Component {
     return (
       <ThemeConsumer>
         {({ theme, toggleTheme }) => (
-          <div className='flex-center column'>
-            <div className='row space-between'>
+          <div className='column'>
+            <div className='flex row space-between'>
               <h1>Coffee Timer</h1>
               <button
                 style={{ fontSize: 30 }}
