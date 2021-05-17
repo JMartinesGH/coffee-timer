@@ -24,15 +24,6 @@ export default class ActiveRecipe extends React.Component {
       waterWeight
     })
   }
-  handleSubmit = (event) => {
-    event.preventDefault()
-   
-  }
-  handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value
-    })
-  }
   render() { 
     const { vessel, minutes, seconds, coffeeWeight, waterWeight } = this.state 
 

@@ -13,13 +13,13 @@ import {
 
 class App extends React.Component { 
   state = {
-      theme: 'dark',
-      toggleTheme: () => { 
-        this.setState(({ theme }) => ({
-          theme: theme === 'light'? 'dark' : 'light'
-        }))
-      }
+    theme: 'dark',
+    toggleTheme: () => { 
+      this.setState(({ theme }) => ({
+        theme: theme === 'light'? 'dark' : 'light'
+      }))
     }
+  }
   render() { 
     return (
       <Router>
